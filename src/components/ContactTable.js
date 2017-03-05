@@ -9,7 +9,7 @@ export default class ContactTable extends Component {
       <div className="container">
         <h1 className="text-center">Contacts</h1>
         <p>
-          <Link to="create" className="btn btn-primary">Create new contact</Link>
+          <Link to="contact/create" className="btn btn-primary">Create new contact</Link>
         </p>
         {contacts.length && (
           <table className="table table-bordered">
@@ -22,7 +22,7 @@ export default class ContactTable extends Component {
               </tr>
             </thead>
             <tbody>
-              {contacts.map(contact => 
+              {contacts.map(contact =>
                 <Contact key={contact.id} contact={contact} />
               )}
             </tbody>
