@@ -14,7 +14,7 @@ module.exports = env => {
           loader: 'babel-loader',
           query: {
             presets: ['es2015', 'react'],
-            plugins: ['react-html-attrs']
+            plugins: ['react-html-attrs', 'transform-object-rest-spread']
           }
         }
       ]

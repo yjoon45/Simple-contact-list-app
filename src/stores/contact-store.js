@@ -15,7 +15,16 @@ class ContactStore extends ReduceStore {
   reduce (state, action) {
     switch (action.type) {
       case "CREATE_CONTACT": {
-        return state;
+        const newContact = Object.assign({}, action.payload, {
+          id: +new Date,
+        });
+        const newState = state.concat(newContact);
+        localStorage.setItem('contacts', JSON.stringify(newState));
+        return newState;
+      }
+      case "SHOW_ALL": {
+        const item = JSON.parse(localStorage.getItem('contacts'));
+        return !!item ? item : state;
       }
       default: return state;
     }

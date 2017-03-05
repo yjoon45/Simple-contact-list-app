@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "flux/utils";
 import ContactStore from "../stores/contact-store";
+import { getAllContacts } from "../actions/contact-actions";
 
 class AppContainer extends Component {
   static getStores () {
@@ -13,8 +14,12 @@ class AppContainer extends Component {
     };
   }
 
+  componentDidMount () {
+    getAllContacts();
+  }
+
   render () {
-    return this.props.children;
+    return React.cloneElement(this.props.children, {...this.state});
   }
 }
 
